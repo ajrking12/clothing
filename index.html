@@ -3,86 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mukrish-Cloth Menswear</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.5; }
-    header { background: #020617; color: #fff; padding: 16px; position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,0.15); z-index: 10; }
-    header h1 { font-size: 1.15rem; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.5px; }
-    header p { font-size: 0.75rem; color: #cbd5e1; }
-    .btn-wa { background: #059669; color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; padding: 8px 14px; border-radius: 999px; display: inline-block; }
-    .btn-wa:hover { background: #10b981; }
-    .hero { background: #0f172a; color: #fff; text-align: center; padding: 44px 16px; }
-    .hero h2 { font-size: 1.65rem; margin-bottom: 8px; }
-    .hero p { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 18px; }
-    .btn-gold { background: #fbbf24; color: #020617; text-decoration: none; font-weight: 700; font-size: 0.9rem; padding: 10px 22px; border-radius: 8px; display: inline-block; }
-    main { max-width: 960px; margin: 0 auto; padding: 20px 16px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); display: flex; flex-direction: column; justify-content: space-between; }
-    .thumb { height: 140px; border-radius: 8px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; letter-spacing: 1px; color: #fff; text-transform: uppercase; }
-    .card h3 { font-size: 1rem; margin-bottom: 4px; }
-    .sizes { font-size: 0.78rem; color: #64748b; }
-    .price { font-size: 1.2rem; font-weight: 800; margin: 8px 0 12px; }
-    .btn-order { background: #059669; color: #fff; text-decoration: none; text-align: center; font-weight: 700; font-size: 0.85rem; padding: 10px; border-radius: 8px; display: block; }
-    .btn-order:hover { background: #10b981; }
-    footer { background: #020617; color: #94a3b8; text-align: center; font-size: 0.8rem; padding: 24px 16px; margin-top: 32px; }
-    footer strong { color: #fff; display: block; margin-bottom: 4px; }
-  </style>
+  <title>AR Clothing</title>
+  <script src="https://tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-900">
 
-  <header>
+  <!-- Header -->
+  <header class="bg-slate-950 text-white p-4 sticky top-0 flex justify-between items-center shadow">
     <div>
-      <h1>R-Cloth Menswear</h1>
-      <p>Premium Styles • Everyday Prices</p>
+      <h1 class="font-bold text-lg text-amber-400 uppercase">AR Clothing</h1>
+      <p class="text-xs text-slate-300">Premium Styles • Everyday Prices</p>
     </div>
-    <a id="wa-top" href="#" target="_blank" class="btn-wa">WhatsApp</a>
+    <a id="wa-top" href="#" target="_blank" class="bg-emerald-600 text-white text-xs font-bold px-3 py-2 rounded-full">WhatsApp</a>
   </header>
 
-  <section class="hero">
-    <h2>New Menswear Collection</h2>
-    <p>Tap any item below to order directly on WhatsApp.</p>
-    <a href="#shop" class="btn-gold">Shop Now</a>
+  <!-- Hero -->
+  <section class="bg-slate-900 text-white text-center py-10 px-4">
+    <h2 class="text-2xl font-extrabold mb-2">New AR Clothing Collection</h2>
+    <p class="text-sm text-slate-300 mb-4">Tap any item below to order directly on WhatsApp.</p>
+    <a href="#shop" class="bg-amber-400 text-slate-950 font-bold text-sm px-5 py-2.5 rounded-lg inline-block">Shop Now</a>
   </section>
 
-  <main id="shop">
-    <div id="grid" class="grid"></div>
+  <!-- Products -->
+  <main id="shop" class="max-w-4xl mx-auto p-4">
+    <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
   </main>
 
-  <footer>
-    <strong>R-Cloth Menswear</strong>
-    <span id="shop-info"></span>
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-slate-400 text-center text-xs p-5 mt-8">
+    <p class="text-white font-semibold mb-1">AR Clothing</p>
+    <p id="shop-info"></p>
   </footer>
 
   <script>
-    // EDIT DETAILS HERE
+    // EDIT STORE DETAILS HERE
     const SHOP = {
-      name: "R-Cloth Menswear",
+      name: "AR Clothing",
       phone: "918248654092",
-      info: "Main Market Road, Keelakarai | Call/WhatsApp: +91 82486 54092"
+      info: "Main Market Road, Chennai | Call/WhatsApp: +91 82486 54092"
     };
 
+    // MATCH THESE IMAGE FILENAMES TO THE PHOTOS YOU UPLOADED TO GITHUB
     const ITEMS = [
-      { name: "Classic Formal Shirt", price: 799, sizes: "S, M, L, XL", tag: "FORMAL SHIRT", color: "#1e3a8a" },
-      { name: "Cotton Casual Shirt", price: 699, sizes: "M, L, XL", tag: "CASUAL SHIRT", color: "#0f766e" },
-      { name: "Crewneck Polo Tee", price: 499, sizes: "S, M, L, XL", tag: "POLO T-SHIRT", color: "#334155" },
-      { name: "Stretch Chino Trousers", price: 999, sizes: "30, 32, 34, 36", tag: "CHINO TROUSERS", color: "#78350f" }
+      { name: "Classic Formal Shirt", price: 799, sizes: "S, M, L, XL", img: "shirt1.jpg" },
+      { name: "Cotton Casual Shirt", price: 699, sizes: "M, L, XL", img: "shirt2.jpg" },
+      { name: "Crewneck Polo Tee", price: 499, sizes: "S, M, L, XL", img: "tshirt1.jpg" },
+      { name: "Stretch Chino Trousers", price: 999, sizes: "30, 32, 34, 36", img: "pant1.jpg" }
     ];
 
-    document.getElementById("wa-top").href = `https://wa.me/${SHOP.phone}`;
+    document.getElementById("wa-top").href = `https://wa.me{SHOP.phone}`;
     document.getElementById("shop-info").textContent = SHOP.info;
 
     document.getElementById("grid").innerHTML = ITEMS.map(item => {
       const msg = encodeURIComponent(`Hi ${SHOP.name}! I want to order: ${item.name} (₹${item.price}).`);
       return `
-        <div class="card">
+        <div class="bg-white rounded-xl border p-3 shadow-sm flex flex-col justify-between">
           <div>
-            <div class="thumb" style="background:${item.color};">${item.tag}</div>
-            <h3>${item.name}</h3>
-            <p class="sizes">Sizes: ${item.sizes}</p>
-            <p class="price">₹${item.price}</p>
+            <img src="${item.img}" alt="${item.name}" class="w-full h-52 object-cover rounded-lg mb-3" />
+            <h3 class="font-bold text-base">${item.name}</h3>
+            <p class="text-xs text-slate-500">Sizes: ${item.sizes}</p>
+            <p class="font-extrabold text-lg mt-1">₹${item.price}</p>
           </div>
-          <a href="https://wa.me/${SHOP.phone}?text=${msg}" target="_blank" class="btn-order">
+          <a href="https://wa.me{SHOP.phone}?text=${msg}" target="_blank"
+             class="mt-3 block text-center bg-emerald-600 text-white font-bold py-2 rounded-lg text-sm">
             Order on WhatsApp
           </a>
         </div>
